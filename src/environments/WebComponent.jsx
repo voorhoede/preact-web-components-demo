@@ -6,7 +6,7 @@ export const WebComponentEnvironment = () => {
     useEffect(() => {
         const alert = document.querySelector('acme-alert')
 
-        alert.addEventListener('acme-dismiss', () => {
+        alert.addEventListener('acme-dismiss', (event) => {
             alert.remove()
         })
     }, [])

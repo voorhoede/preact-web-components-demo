@@ -167,17 +167,12 @@ function proxyEvents(props, eventNames, root) {
         }
 
         const customCb = (event) => {
-            const { value } = event.target;
-
             const customEvent = new CustomEvent(customName, {
                 ...event,
                 composed: true,
                 bubbles: true,
                 detail: {
-                    value: value !== undefined || null ? value : event,
-                    ...(event.target?.checked
-                        ? { checked: event.target?.checked }
-                        : {}),
+                    target: event.target,
                 },
             });
 
