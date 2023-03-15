@@ -1,22 +1,11 @@
-import { createApp } from 'vue';
-import { useEffect, useRef } from 'react'
+import { useMountVueComponent } from './hooks/use-mount-vue-component.js';
 import { ReactEnviroment } from './environments/React.jsx'
 import { WebComponentEnvironment } from './environments/WebComponent.jsx'
 import VueEnvironment from './environments/Vue.vue'
 import './App.css'
 
 function App() {
-  const vueRootRef = useRef(null)
-
-  useEffect(() => {
-    if (!vueRootRef.current) {
-      return
-    }
-
-    const vueApp = createApp(VueEnvironment)
-
-    vueApp.mount(vueRootRef.current)
-  }, [vueRootRef])
+  const vueRef = useMountVueComponent(VueEnvironment)
 
   return (
     <main class="app">
@@ -32,7 +21,7 @@ function App() {
 
       <h2>Vue (web component)</h2>
 
-      <div ref={vueRootRef} />
+      <div ref={vueRef} />
     </main>
   )
 }

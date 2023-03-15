@@ -6,9 +6,14 @@ import vue from '@vitejs/plugin-vue'
 export default defineConfig({
   plugins: [
     react(),
-    vue(),
+    vue({
+      template: {
+        compilerOptions: {
+          isCustomElement: (tag) => tag.startsWith('acme-'),
+        }
+      }
+    }),
   ],
-  // alias from react to preact
   resolve: {
     alias: {
       react: 'preact/compat',
