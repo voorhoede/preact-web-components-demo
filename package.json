@@ -9,6 +9,9 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@vitejs/plugin-vue": "^4.0.0",
+    "case-it": "^1.0.1",
+    "preact": "^10.13.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
